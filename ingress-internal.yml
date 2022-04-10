@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-smart-home
+spec:
+  backend:
+    serviceName: gke-smart-home-portal-service
+    servicePort: 80
+  rules:
+    - http:
+        paths:
+          - path: /api
+            backend:
+              serviceName: gke-service-smart-home-service
+              servicePort: 8080
